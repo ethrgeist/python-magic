@@ -26,6 +26,7 @@ import threading
 
 from ctypes import c_char_p, c_int, c_size_t, c_void_p
 
+default_magic_file=None
 
 class MagicException(Exception):
     def __init__(self, message):
@@ -60,6 +61,9 @@ class Magic:
 
         if uncompress:
             self.flags |= MAGIC_COMPRESS
+
+        if magic_file is None:
+            magic_file = default_magic_file
 
         self.cookie = magic_open(self.flags)
         self.lock = threading.Lock()
@@ -148,6 +152,12 @@ def from_buffer(buffer, mime=False):
 libmagic = None
 # Let's try to find magic or magic1
 dll = ctypes.util.find_library('magic') or ctypes.util.find_library('magic1') or ctypes.util.find_library('cygmagic-1')
+
+bin_dist_path = os.path.join(os.path.dirname(__file__), 'libmagic')
+if os.path.isdir(bin_dist_path):
+    dll = os.path.abspath(os.path.join(bin_dist_path, 'libmagic.dylib'))
+    default_magic_file = os.path.join(bin_dist_path, 'magic.mgc')
+
 
 # This is necessary because find_library returns None if it doesn't find the library
 if dll:

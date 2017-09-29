@@ -3,13 +3,18 @@
 
 from setuptools import setup
 
-setup(name='python-magic',
+setup(name='python-magic-bin',
       description='File type identification using libmagic',
       author='Adam Hupp',
       author_email='adam@hupp.org',
-      url="http://github.com/ahupp/python-magic",
+      url="http://github.com/julian-r/python-magic",
       version='0.4.13',
-      py_modules=['magic'],
+      package_data={
+            'magic': ['libmagic/*'],
+      },
+      #include_package_data=True,
+      zip_safe=False,
+      packages=['magic'],
       long_description="""This module uses ctypes to access the libmagic file type
 identification library.  It makes use of the local magic database and
 supports both textual and MIME-type output.
