@@ -4,22 +4,21 @@
 from setuptools import setup
 
 setup(name='python-magic-bin',
-      description='File type identification using libmagic',
-      author='Adam Hupp',
-      author_email='adam@hupp.org',
+      description='File type identification using libmagic binary package',
+      author='Julian David Rath',
+      author_email='julian.rath@gmail.com',
       url="http://github.com/julian-r/python-magic",
       version='0.4.13',
       package_data={
-            'magic': ['libmagic/*'],
+            'magic': ['libmagic/*.dll', 'libmagic/*.dylib', 'libmagic/*.mgc'],
       },
-      #include_package_data=True,
       zip_safe=False,
       packages=['magic'],
       long_description="""This module uses ctypes to access the libmagic file type
 identification library.  It makes use of the local magic database and
 supports both textual and MIME-type output.
 """,
-      keywords="mime magic file",
+      keywords="mime magic file binary",
       license="MIT",
       test_suite='test',
       classifiers=[
@@ -29,4 +28,4 @@ supports both textual and MIME-type output.
           'Programming Language :: Python :: 2',
           'Programming Language :: Python :: 3',
       ],
-      )
+)

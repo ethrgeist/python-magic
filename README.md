@@ -1,4 +1,7 @@
-# python-magic
+# python-magic-bin
+This is a fork of the `python-magic` library but with binary packages for windows and mac.
+
+
 [![PyPI version](https://badge.fury.io/py/python-magic.svg)](https://badge.fury.io/py/python-magic)
 [![Build Status](https://travis-ci.org/ahupp/python-magic.svg?branch=master)](https://travis-ci.org/ahupp/python-magic)
 
@@ -48,7 +51,7 @@ There are, sadly, two libraries which use the module name `magic`.  Both have be
 ## Installation
 
 The current stable version of python-magic is available on pypi and
-can be installed by running `pip install python-magic`.
+can be installed by running `pip install python-magic-bin`.
 
 Other sources:
 
