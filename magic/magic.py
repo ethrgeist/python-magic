@@ -155,9 +155,9 @@ dll = ctypes.util.find_library('magic') or ctypes.util.find_library('magic1') or
 
 bin_dist_path = os.path.join(os.path.dirname(__file__), 'libmagic')
 if os.path.isdir(bin_dist_path):
-    if os.name == 'darwin':
+    if sys.platform == 'darwin':
         dll = os.path.abspath(os.path.join(bin_dist_path, 'libmagic.dylib'))
-    elif os.name == 'nt':
+    elif sys.platform == 'win32':
         dll = os.path.abspath(os.path.join(bin_dist_path, 'libmagic.dll'))
     default_magic_file = os.path.join(bin_dist_path, 'magic.mgc')
 
