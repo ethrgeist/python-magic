@@ -3,20 +3,19 @@
 
 from setuptools import setup
 
-setup(name='python-magic-bin',
-      description='File type identification using libmagic binary package',
+setup(name='python-magic-debian-bin',
+      description='File type identification using libmagic binary package, for debian linux',
       author='Julian David Rath',
-      author_email='julian.rath@gmail.com',
-      url="http://github.com/julian-r/python-magic",
-      version='0.4.13',
+      url="http://github.com/spencer-hanson/python-magic",
+      version='0.4.25',
       package_data={
-            'magic': ['libmagic/*.dll', 'libmagic/*.dylib', 'libmagic/*.mgc'],
+            'magic': ['libmagic/*.dll', 'libmagic/*.dylib', 'libmagic/*.mgc', 'libmagic/*.so*', 'libmagic/*.la']
       },
       zip_safe=False,
       packages=['magic'],
       long_description="""This module uses ctypes to access the libmagic file type
 identification library.  It makes use of the local magic database and
-supports both textual and MIME-type output.
+supports both textual and MIME-type output. Built for Debian Linux by Spencer Hanson
 """,
       keywords="mime magic file binary",
       license="MIT",

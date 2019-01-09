@@ -1,2 +1,4 @@
 deb_dist
-python_magic.egg-info
+*.egg-info
+build/*
+dist/*
