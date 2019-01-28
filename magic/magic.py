@@ -176,7 +176,9 @@ if not libmagic or not libmagic._name:
                          glob.glob('/usr/local/Cellar/libmagic/*/lib/libmagic.dylib'),
                        'win32': windows_dlls,
                        'cygwin': windows_dlls,
-                       'linux': [pkg_resources.resource_filename(__name__, "libmagic/libmagic.so.1")],    # fallback for some Linuxes (e.g. Alpine) where library search does not work
+                       # fallback for some Linuxes (e.g. Alpine) where library search does not work
+                       # package resources for virtualenv support
+                       'linux': [pkg_resources.resource_filename(__name__, "libmagic/libmagic.so.1")],
                       }
     platform = 'linux' if sys.platform.startswith('linux') else sys.platform
     for dll in platform_to_lib.get(platform, []):

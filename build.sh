@@ -26,3 +26,19 @@ rm -rf build
 cp /usr/local/Cellar/libmagic/5.32/share/misc/magic.mgc ${LIBMAGIC_TARGET_DIR}/
 cp /usr/local/Cellar/libmagic/5.32/lib/libmagic.dylib ${LIBMAGIC_TARGET_DIR}/
 python setup.py bdist_wheel -p macosx-10.6-intel
+
+# manylinux x86-64
+rm -rf ${LIBMAGIC_TARGET_DIR}/*
+rm -rf build
+wget https://github.com/spencer-hanson/linux-file/releases/download/FILE5_35_manylinux/file-manylinux-x86-64.zip
+unzip file-manylinux-x86-64.zip -d ${LIBMAGIC_TARGET_DIR}
+rm file-manylinux-x86-64.zip
+python setup.py bdist_wheel -p manylinux1_x86_64
+
+# manylinux i686
+rm -rf ${LIBMAGIC_TARGET_DIR}/*
+rm -rf build
+wget https://github.com/spencer-hanson/linux-file/releases/download/FILE5_35_manylinux/file-manylinux-i686.zip
+unzip file-manylinux-i686.zip -d ${LIBMAGIC_TARGET_DIR}
+rm file-manylinux-i686.zip
+python setup.py bdist_wheel -p manylinux1_i686
