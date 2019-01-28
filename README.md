@@ -1,5 +1,5 @@
 # python-magic-bin
-This is a fork of the `python-magic` library but with binary packages for windows and mac.
+This is a fork of the `python-magic` library but with binary packages for windows, mac and linux.
 
 
 [![PyPI version](https://badge.fury.io/py/python-magic.svg)](https://badge.fury.io/py/python-magic)
