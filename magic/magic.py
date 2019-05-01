@@ -151,7 +151,11 @@ def from_buffer(buffer, mime=False):
 
 libmagic = None
 # Let's try to find magic or magic1
-dll = ctypes.util.find_library('magic') or ctypes.util.find_library('magic1') or ctypes.util.find_library('cygmagic-1')
+dll = ctypes.util.find_library('magic') \
+    or ctypes.util.find_library('magic1') \
+    or ctypes.util.find_library('cygmagic-1') \
+    or ctypes.util.find_library('libmagic-1') \
+    or ctypes.util.find_library('msys-magic-1') #for MSYS2
 
 bin_dist_path = os.path.join(os.path.dirname(__file__), 'libmagic')
 if os.path.isdir(bin_dist_path):
@@ -167,7 +171,7 @@ if dll:
     libmagic = ctypes.CDLL(dll)
 
 if not libmagic or not libmagic._name:
-    windows_dlls = ['magic1.dll','cygmagic-1.dll']
+    windows_dlls = ['magic1.dll','cygmagic-1.dll','libmagic-1.dll','msys-magic-1.dll']
     platform_to_lib = {'darwin': ['/opt/local/lib/libmagic.dylib',
                                   '/usr/local/lib/libmagic.dylib'] +
                          # Assumes there will only be one version installed
