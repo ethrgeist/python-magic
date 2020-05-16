@@ -5,12 +5,12 @@ from setuptools import setup
 
 setup(name='python-magic-bin',
       description='File type identification using libmagic binary package',
-      author='Julian David Rath',
-      author_email='julian.rath@gmail.com',
+      author='Adam Hupp, Julian David Rath, Spencer Hanson',
+      author_email='adam@hupp.org, julian.rath@gmail.com, spencer.hanson@swimlane.com',
       url="http://github.com/julian-r/python-magic",
-      version='0.4.13',
+      version='0.4.14',
       package_data={
-            'magic': ['libmagic/*.dll', 'libmagic/*.dylib', 'libmagic/*.mgc'],
+            'magic': ['libmagic/*.dll', 'libmagic/*.dylib', 'libmagic/*.mgc', 'libmagic/*.so*', 'libmagic/*.la']
       },
       zip_safe=False,
       packages=['magic'],
